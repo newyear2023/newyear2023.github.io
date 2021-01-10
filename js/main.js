@@ -1,27 +1,36 @@
-$(document).ready(() => {
-  let newYear = new Date("Jan 1, 2021 00:00:00").getTime();
+$(function() {
+  const newYearDate = new Date("Jan 1, 2022 00:00:00").getTime();
+  const nowDate = new Date().getTime();
 
-  let getNewYear = () => {
-    var now = new Date().getTime();
-    var gap = newYear - now;
+  const getNewYearDate = () => {
+      const gap = newYearDate - nowDate;
 
-    var second = 1000;
-    var minute = second * 60;
-    var hour = minute * 60;
-    var day = hour * 24;
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
 
-    var d = Math.floor(gap / day);
-    var h = Math.floor((gap % day) / hour);
-    var m = Math.floor((gap % hour) / minute);
-    var s = Math.floor((gap % minute) / second);
+      const d = Math.floor(gap / day);
+      const h = Math.floor((gap % day) / hour);
+      const m = Math.floor((gap % hour) / minute);
+      const s = Math.floor((gap % minute) / second);
 
+      setNewYearDate(d, h, m, s)
+  };
+
+  const setNewYearDate = (d, h, m, s) => {
     $("#day").html(d);
     $("#hour").html(h);
     $("#minute").html(m);
     $("#second").html(s);
-  };
+  }
 
-  setInterval(() => {
-    getNewYear();
-  }, 1000);
+  if(nowDate < newYearDate)
+  {
+    setInterval(() => {
+      getNewYearDate();
+    }, 1000);
+  } else {
+    setNewYearDate(0, 0, 0, 0)
+  }
 });
