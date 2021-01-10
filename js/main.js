@@ -1,8 +1,10 @@
 $(function() {
   const newYearDate = new Date("Jan 1, 2022 00:00:00").getTime();
-  const nowDate = new Date().getTime();
+  let nowDate = new Date().getTime();
 
   const getNewYearDate = () => {
+      nowDate = new Date().getTime();
+    
       const gap = newYearDate - nowDate;
 
       const second = 1000;
