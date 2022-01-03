@@ -1,5 +1,5 @@
 $(function() {
-  const newYearDate = new Date("Jan 1, 2022 00:00:00").getTime();
+  const newYearDate = new Date("Jan 1, 2023 00:00:00").getTime();
   let nowDate = new Date().getTime();
 
   const getNewYearDate = () => {
